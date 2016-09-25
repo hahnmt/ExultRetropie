@@ -37,21 +37,22 @@ function install_exult() {
 
 function configure_exult() {
     mkRomDir "ports/exult"
-	mkRomDir "ports/exult/data"
-	mkRomDir "ports/exult/data/blackgate"
+    mkRomDir "ports/exult/data"
+    #Folders for the DOS games (must contain STATIC subfolder.)
+    mkRomDir "ports/exult/data/blackgate"
     mkRomDir "ports/exult/data/serpentisle"
-	#move the main data directory
-	moveConfigDir "$md_inst/share/exult" "/home/pi/RetroPie/roms/ports/exult/data"
+    #move the main data directory, need to change the hardlink to /home/pi/RetroPie
+    moveConfigDir "$md_inst/share/exult" "/home/pi/RetroPie/roms/ports/exult/data"
 	
 	#move all configs
-	moveConfigDir "$home/.exult" "$md_conf_root/exult/configdir"
-	moveConfigFile "$home/.exult.cfg" "$md_conf_root/exult/exult.cfg"
+    moveConfigDir "$home/.exult" "$md_conf_root/exult/configdir"
+    moveConfigFile "$home/.exult.cfg" "$md_conf_root/exult/exult.cfg"
 	
     addPort "$md_id" "exult" "Exult ultima 7" "$md_inst/bin/exult"
 
 	#TODO
 	#automate digital audio install/configuration?
 	#move Saves?   mkRomDir "ports/exult/saves"
-    #create Exult default configuration
+    #create Exult optimized configuration
     #chown $user:$user "$md_conf_root/exult/exult.cfg"
 }
