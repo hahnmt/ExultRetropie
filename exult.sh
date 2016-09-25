@@ -24,10 +24,10 @@ function sources_exult() {
 
 function build_exult() {
     ./autogen.sh
-	#default raspberry pi 3 buildflags cause a crash in game, force RPI2 build settings
-	./configure CFLAGS="-O2 -mcpu=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard" CXXFLAGS="-O2 -mcpu=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard" --prefix="$md_inst" --with-sdl=sdl2
+    #default raspberry pi 3 buildflags cause a crash in game, force RPI2 build settings
+    ./configure CFLAGS="-O2 -mcpu=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard" CXXFLAGS="-O2 -mcpu=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard" --prefix="$md_inst" --with-sdl=sdl2
 
-	make
+    make
     md_ret_require="$md_build/exult"
 }
 
@@ -44,15 +44,15 @@ function configure_exult() {
     #move the main data directory, need to change the hardlink to /home/pi/RetroPie
     moveConfigDir "$md_inst/share/exult" "/home/pi/RetroPie/roms/ports/exult/data"
 	
-	#move all configs
+    #move all configs
     moveConfigDir "$home/.exult" "$md_conf_root/exult/configdir"
     moveConfigFile "$home/.exult.cfg" "$md_conf_root/exult/exult.cfg"
 	
     addPort "$md_id" "exult" "Exult ultima 7" "$md_inst/bin/exult"
 
-	#TODO
-	#automate digital audio install/configuration?
-	#move Saves?   mkRomDir "ports/exult/saves"
+    #TODO
+    #automate digital audio install/configuration?
+    #move Saves?   mkRomDir "ports/exult/saves"
     #create Exult optimized configuration
     #chown $user:$user "$md_conf_root/exult/exult.cfg"
 }
