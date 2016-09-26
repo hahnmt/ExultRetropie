@@ -45,8 +45,8 @@ function configure_exult() {
     #Folders for the DOS games (must contain STATIC subfolder.)
     mkRomDir "ports/exult/data/blackgate"
     mkRomDir "ports/exult/data/serpentisle"
-    #move the main data directory, need to change the hardlink to /home/pi/RetroPie
-    moveConfigDir "$md_inst/share/exult" "/home/pi/RetroPie/roms/ports/exult/data"
+    
+    moveConfigDir "$md_inst/share/exult" "$romdir/ports/exult/data"
 	
     #move all configs
     moveConfigDir "$home/.exult" "$md_conf_root/exult/configdir"
