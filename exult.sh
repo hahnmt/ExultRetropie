@@ -24,13 +24,7 @@ function sources_exult() {
 
 function build_exult() {
     ./autogen.sh
-    #default raspberry pi 3 buildflags cause a crash in game, force RPI2 build settings
-    if isPlatform "rpi3"; then  
-        ./configure CFLAGS="-O2 -mcpu=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard" CXXFLAGS="-O2 -mcpu=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard" --prefix="$md_inst" --with-sdl=sdl2
-    else
-        ./configure --prefix="$md_inst" --with-sdl=sdl2    
-	fi
-	
+    ./configure --prefix="$md_inst" --with-sdl=sdl2
     make
     md_ret_require="$md_build/exult"
 }
