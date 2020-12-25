@@ -14,7 +14,7 @@ rp_module_desc="Exult - Ultima 7 engine"
 rp_module_section="exp"
 
 function depends_exult() {
-    getDepends automake libsdl2-dev autoconf libtool zlib1g-dev libvorbis0a libvorbisenc2 libvorbisfile3 libvorbis-dev 	
+    getDepends automake libsdl2-dev autoconf libtool zlib1g-dev libvorbis0a libvorbisenc2 libvorbisfile3 libvorbis-dev libsdl1.2-dev
 	#libsdl1.2-dev timidity 
 }
 
