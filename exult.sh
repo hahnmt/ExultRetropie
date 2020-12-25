@@ -19,12 +19,13 @@ function depends_exult() {
 }
 
 function sources_exult() {
-    gitPullOrClone "$md_build" https://github.com/exult/exult.git
+    gitPullOrClone "$md_build" https://github.com/exult/exult.git "v1.6.x"
+    #v1.6.x branch
 }
 
 function build_exult() {
     ./autogen.sh
-    ./configure --prefix="$md_inst" --with-sdl=sdl2
+    ./configure --prefix="$md_inst" --with-sdl=sdl12 --enable-opengl
     make
     md_ret_require="$md_build/exult"
 }
